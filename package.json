@@ -1,0 +1,22 @@
+{
+  "name": "web_scraper_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "mongoose": "^8.12.1",
+    "multer": "^1.4.5-lts.1",
+    "puppeteer": "^24.4.0"
+  }
+}
