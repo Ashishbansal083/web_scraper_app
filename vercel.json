@@ -1,23 +1,29 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "server.js",
-        "use": "@vercel/node"
-      }
-      ,
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
     {
       "src": "build/**",
       "use": "@vercel/static"
     }
-    ],"routes": [
-    
-    
-    { "src": "/scrape", "dest": "routes/companyRoutes.js" },
-    { "src": "/scrape(.*)", "dest": "routes/companyRoutes.js" },
-    { "src": "(.+)", "dest": "build/$1" }
-  ],"rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "(.+)",
+      "dest": "build/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
-  }
-  
+}
