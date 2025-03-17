@@ -12,6 +12,7 @@ const router = express.Router();
 router.post("/scrape", async (req, res) => {
   try {
     const { url } = req.body;
+    
     const data = await scrapeWebsite(url);
     if (!data) return res.status(500).json({ error: "Scraping failed" });
     const screenshot = await captureScreenshot(url);
