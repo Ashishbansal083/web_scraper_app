@@ -13,7 +13,7 @@
     ],"routes": [
     
     
-    { "src": "/", "dest": "server.js" },
+    { "src": "/scrape", "dest": "/routes/companyRoutes.js" },
     { "src": "(.+)", "dest": "build/$1" }
   ]
   }
