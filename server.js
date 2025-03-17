@@ -33,7 +33,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/uploads", express.static(path.join(__dirname, "services", "uploads")));
-app.use("/", companyRoutes);
+// Mount the router on `/api`
+app.use("/api", companyRoutes);
+
+// Default Route
+app.get("/", (req, res) => {
+    res.send("Welcome to the API!");
+});
 
 // Handle React frontend
 app.get("*", (req, res) => {
