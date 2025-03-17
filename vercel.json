@@ -16,6 +16,8 @@
     { "src": "/scrape", "dest": "routes/companyRoutes.js" },
     { "src": "/scrape(.*)", "dest": "routes/companyRoutes.js" },
     { "src": "(.+)", "dest": "build/$1" }
+  ],"rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
   ]
   }
   
