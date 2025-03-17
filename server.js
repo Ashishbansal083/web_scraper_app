@@ -18,21 +18,40 @@
 
 // startServer();
 require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
 const connectDB = require("./src/config/db"); // Database connection
-const app = require("./src/app"); // Import Express app
+const companyRoutes = require("./src/routes/companyRoutes"); // Import routes
 
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+
+// Routes
+app.use("/uploads", express.static(path.join(__dirname, "services", "uploads")));
+app.use("/", companyRoutes);
+
+// Handle React frontend
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Database Connection
 const startServer = async () => {
   try {
     await connectDB(); // Ensure DB connection
-    console.log("Database Connected");
-
-    // Instead of app.listen(), export the app for Vercel
-    module.exports = app;
+    console.log("✅ Database Connected");
   } catch (error) {
-    console.error("Server Startup Error:", error.message);
+    console.error("❌ Database Connection Error:", error.message);
     process.exit(1);
   }
 };
 
 startServer();
 
+// ✅ Export the app for Vercel (Do NOT use app.listen)
+module.exports = app;
