@@ -10,12 +10,7 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    { "src": "/delete", "dest": "server.js" },
-    { "src": "/companies", "dest": "server.js" },
-    { "src": "/scrape", "dest": "server.js" },
-    {"src":"/export","dest":"server.js"},
-    { "src": "/", "dest": "server.js" },    
-    { "src": "(.+)", "dest": "build/$1" }
+  "routes": [        
+    { "src": "(.+)", "dest": "server.js" }
   ]
 }

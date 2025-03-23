@@ -29,7 +29,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "build")));
 
 // Routes
 app.use("/uploads", express.static(path.join(__dirname, "services", "uploads")));
